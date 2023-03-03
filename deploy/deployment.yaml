@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mms-greetings-deploy
+  name: mms-greetings
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mms-greetings-deploy
+      app: mms-greetings
   template:
     metadata:
       labels:
-        app: mms-greetings-deploy
+        app: mms-greetings
     spec:
       containers:
         - name: app

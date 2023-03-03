@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mms-greetings-service
+  name: mms-greetings
 spec:
   selector:
-    app: mms-greetings-service
+    app: mms-greetings
   type: LoadBalancer
   ports:
     - port: 80
