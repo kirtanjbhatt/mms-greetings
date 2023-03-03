@@ -8,7 +8,7 @@ on:
 env:
   PROJECT_ID: ${{secrets.MMS_GKE_PROJECT}}
   GREETINGS_MSG: ${{secrets.MMS_GREETING_MSG}}
-  GKE_CLUSTER: mms-gke-cluster
+  GKE_CLUSTER: mms-gke-cluster-01
   GKE_ZONE: us-west1-a
   DEPLOYMENT_NAME: mms-greetings-deploy
   IMAGE: mms-greetings-image
