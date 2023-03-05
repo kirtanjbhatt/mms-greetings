@@ -15,7 +15,7 @@ env:
   GKE_ZONE: us-west1-a
   DEPLOYMENT_NAME: mms-greetings
   IMAGE: mms-greetings-image
-  TAG: 1.0.1
+  TAG: 1.0.2
 
 jobs:
   setup-build-publish-deploy:
@@ -79,10 +79,6 @@ jobs:
           ./kustomize build . | kubectl apply -f -
           kubectl rollout status deployment/$DEPLOYMENT_NAME
           kubectl get services -o wide
-          ls
-          cd deploy/dev
-          ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$TAG
-          git add .
-          git commit -m "updated using kustomize"
-          git push
+
+
 
