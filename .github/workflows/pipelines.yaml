@@ -15,7 +15,6 @@ env:
   GKE_ZONE: us-west1-a
   DEPLOYMENT_NAME: mms-greetings
   IMAGE: mms-greetings-image
-  TAG: 
 
 jobs:
   setup-build-publish-deploy:
@@ -31,7 +30,7 @@ jobs:
         run: |-
           # Build a docker container and push it to ECR
           ATAG=$(git rev-parse --short "$GITHUB_SHA")
-          export $TAG=$ATAG
+          export TAG=$ATAG
           echo "tag env: $TAG"
           echo "automatic env: $ATAG" 
 
