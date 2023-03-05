@@ -15,7 +15,7 @@ env:
   GKE_ZONE: us-west1-a
   DEPLOYMENT_NAME: mms-greetings
   IMAGE: mms-greetings-image
-  TAG: 1.0.1
+  TAG: 
 
 jobs:
   setup-build-publish-deploy:
@@ -57,15 +57,15 @@ jobs:
       - name: Build Docker Image and push to GCR
         run: |-
           # Build a docker container and push it to ECR
-          ATAG=$(git rev-parse --short "$GITHUB_SHA")          
-          echo "Pushing image to GCR..." + $ATAG
-          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$ATAG" .
-          echo "::set-output name=image::gcr.io/$PROJECT_ID/$IMAGE:$ATAG"
-          docker push "gcr.io/$PROJECT_ID/$IMAGE:$ATAG"
+          ATAG=$(git rev-parse --short "$GITHUB_SHA")
+          export TAG=ATAG
+          echo "Pushing image to GCR..." + $TAG
+          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
+          echo "::set-output name=image::gcr.io/$PROJECT_ID/$IMAGE:$TAG"
+          docker push "gcr.io/$PROJECT_ID/$IMAGE:$TAG"
 
       - name: Set up Kustomize
-        run: |-
-          echo "getting image tag..." + $ATAG
+        run: |-          
           curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
           chmod u+x ./kustomize
 
