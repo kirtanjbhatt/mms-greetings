@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mms-greetings
+  namespace: mms-apps
 spec:
   replicas: 1
   selector:

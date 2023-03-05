@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mms-greetings
+  namespace: mms-apps
 spec:
   selector:
     app: mms-greetings
