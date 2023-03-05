@@ -88,15 +88,12 @@ jobs:
 
       - name: Commit image tag for deployment
         run: |-          
-          export TAG=$(git rev-parse --short "$GITHUB_SHA")          
+          export TAG=$(git rev-parse --short "$GITHUB_SHA")
           ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$TAG
+          cat kustomization.yaml
           git config --global user.email "traingke2023@gmail.com"
           git config --global user.name "Kirtan Bhatt"
-          git add kustomization.yaml    
-      
-      - name: Commit and push changes
-        uses: devops-infra/action-commit-push@v0.3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: updated using kustomize
+          git add kustomization.yaml
+          git commit -m "image tag updated: $TAG"
+          git push
 
