@@ -6,14 +6,7 @@ on:
       - main
     paths-ignore:
       - 'README.md'
-      - 'deploy/**'      
-
-on:
-  push:
-    paths-ignore:
-      - 'README.md'
-      - 'backup/**'
-      - '**/*.draft.md'
+      - 'deploy/**'
 
 env:
   PROJECT_ID: ${{secrets.MMS_GKE_PROJECT}}
