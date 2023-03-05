@@ -13,4 +13,4 @@ secretGenerator:
 images:
 - name: gcr.io/PROJECT_ID/IMAGE:TAG
   newName: gcr.io/poc-ciscld-mediamarkt-86910/mms-greetings-image
-  newTag: 51f85c7
+  newTag: 9e698be
