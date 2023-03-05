@@ -73,6 +73,8 @@ jobs:
 
       - name: Deploy Image to GKE cluster
         run: |-          
+          echo "Deploying image with tag: " + $TAG
+          export TAG=$(git rev-parse --short "$GITHUB_SHA")
           ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$TAG
           cat kustomization.yaml
           ./kustomize build . | kubectl apply -f -
