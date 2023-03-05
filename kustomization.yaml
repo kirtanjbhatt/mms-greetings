@@ -4,3 +4,9 @@ kind: Kustomization
 resources:
   - service.yaml
   - deployment.yaml
+
+secretGenerator:
+- name: mms-apps-secrets
+  literals:
+    - greetings-message=R3V0ZW4gVGFnLiBXaWxrb21tZW4gYmVpIEluZm9zeXMhIQ==
+  namespace: mms-apps

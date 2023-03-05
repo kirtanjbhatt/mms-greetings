@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: git@github.com:kirtanjbhatt/mms-greetings.git
     targetRevision: HEAD
-    path: mms-dev
+    path: deploy/dev
   destination: 
     server: https://kubernetes.default.svc
     namespace: mms-apps
