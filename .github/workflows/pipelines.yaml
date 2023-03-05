@@ -29,8 +29,8 @@ jobs:
           # Build a docker container and push it to ECR
           ATAG=$(git rev-parse --short "$GITHUB_SHA")
           export $TAG=ATAG
-          echo "tag env" + $TAG
-          echo "automatic env" + $ATAG
+          echo "tag env: $TAG"
+          echo "automatic env: $ATAG" 
 
       - name: Checkout Repository
         uses: actions/checkout@v2
