@@ -2,11 +2,15 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - service.yaml
-  - deployment.yaml
+- service.yaml
+- deployment.yaml
 
 secretGenerator:
-- name: mms-apps-secrets
-  literals:
-    - greetings-message=R3V0ZW4gVGFnLiBXaWxrb21tZW4gYmVpIEluZm9zeXMhIQ==
+- literals:
+  - greetings-message=R3V0ZW4gVGFnLiBXaWxrb21tZW4gYmVpIEluZm9zeXMhIQ==
+  name: mms-apps-secrets
   namespace: mms-apps
+images:
+- name: gcr.io/PROJECT_ID/IMAGE:TAG
+  newName: gcr.io/poc-ciscld-mediamarkt-86910/mms-greetings-image
+  newTag: 51f85c7
