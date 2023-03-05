@@ -1,20 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: github-actions-gke
+  name: mms-greetings
+  namespace: mms-apps
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: github-actions-gke
+      app: mms-greetings
   template:
     metadata:
       labels:
-        app: github-actions-gke
+        app: mms-greetings
     spec:
-      imagePullSecrets:
-        - name: countly-registry
       containers:
-        - name: app          
-          image: gcr.io/github-actions-gke-379319/github-actions-gke-image:1.0.1
+        - name: app
+          image: gcr.io/PROJECT_ID/IMAGE:TAG
           imagePullPolicy: Always
+          env:
+          - name: MMS_GREETING_MSG
+            valueFrom:
+              secretKeyRef:
+                name: mms-apps-secrets
+                key: greetings-message

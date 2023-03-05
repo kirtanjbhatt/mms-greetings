@@ -1,10 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: github-actions-gke
+  name: mms-greetings
+  namespace: mms-apps
 spec:
   selector:
-    app: github-actions-gke
+    app: mms-greetings
   type: LoadBalancer
   ports:
     - port: 80
