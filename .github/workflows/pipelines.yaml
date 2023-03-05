@@ -15,7 +15,7 @@ env:
   GKE_ZONE: us-west1-a
   DEPLOYMENT_NAME: mms-greetings
   IMAGE: mms-greetings-image
-  TAG: 1.0.2
+  TAG: 1.0.1
 
 jobs:
   setup-build-publish-deploy:
@@ -54,12 +54,15 @@ jobs:
         run: |-
           gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
-      - name: Build Docker Image
+      - name: Build Docker Image and push to GCR
         run: |-
+          # Build a docker container and push it to ECR
+          $TAG=$(git rev-parse --short "$GITHUB_SHA")
+          echo "$TAG"
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_REF##*/}-$git_hash .
+          echo "Pushing image to GCR..."
           docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
-
-      - name: Publish Docker Image to GCR
-        run: |-
+          echo "::set-output name=image::gcr.io/$PROJECT_ID/$IMAGE:$TAG"
           docker push "gcr.io/$PROJECT_ID/$IMAGE:$TAG"
 
       - name: Set up Kustomize
@@ -95,4 +98,10 @@ jobs:
           git add kustomization.yaml
           git commit -m "updated using kustomize"
           git push
+
+      - name: Commit and push changes
+        uses: devops-infra/action-commit-push@v0.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: updated using kustomize
 
