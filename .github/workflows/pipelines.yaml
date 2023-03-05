@@ -59,9 +59,9 @@ jobs:
           # Build a docker container and push it to ECR
           ATAG=$(git rev-parse --short "$GITHUB_SHA")          
           echo "Pushing image to GCR..." + $ATAG
-          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
-          echo "::set-output name=image::gcr.io/$PROJECT_ID/$IMAGE:$TAG"
-          docker push "gcr.io/$PROJECT_ID/$IMAGE:$TAG"
+          docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$ATAG" .
+          echo "::set-output name=image::gcr.io/$PROJECT_ID/$IMAGE:$ATAG"
+          docker push "gcr.io/$PROJECT_ID/$IMAGE:$ATAG"
 
       - name: Set up Kustomize
         run: |-
