@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-actions-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: github-actions-gke
+  template:
+    metadata:
+      labels:
+        app: github-actions-gke
+    spec:
+      imagePullSecrets:
+        - name: countly-registry
+      containers:
+        - name: app          
+          image: gcr.io/github-actions-gke-379319/github-actions-gke-image:1.0.1
+          imagePullPolicy: Always
