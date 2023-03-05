@@ -86,5 +86,16 @@ jobs:
           git commit -m "updated using kustomize"
           git push
           
+      - name: Set up Kustomize
+        run: |-
+          cd deploy/dev
+          curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
+          chmod u+x ./kustomize
 
+      - name: Commit image tag for deployment
+        run: |-          
+          ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$TAG
+          git add .
+          git commit -m "updated using kustomize"
+          git push
 
