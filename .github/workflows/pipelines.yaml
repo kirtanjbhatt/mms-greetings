@@ -92,10 +92,8 @@ jobs:
           ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$TAG
           git config --global user.email "traingke2023@gmail.com"
           git config --global user.name "Kirtan Bhatt"
-          git add kustomization.yaml
-          git commit -m "updated using kustomize"
-          git push
-
+          git add kustomization.yaml    
+      
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@v0.3
         with:
