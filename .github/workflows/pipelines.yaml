@@ -27,15 +27,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-
       - name: set env
         run: |-
           # Build a docker container and push it to ECR
           ATAG=$(git rev-parse --short "$GITHUB_SHA")
-          export $TAG=ATAG
+          export $TAG=$ATAG
           echo "tag env: $TAG"
           echo "automatic env: $ATAG" 
-          
+
       - name: Setup JDK 1.8
         uses: actions/setup-java@v1
         with:
