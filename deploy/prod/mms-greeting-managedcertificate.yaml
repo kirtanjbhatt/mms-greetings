@@ -5,4 +5,4 @@ metadata:
   namespace: mms-apps-prod
 spec:
   domains:
-  - sec-greeting.inf-gcp-external-demo-prod.com
+  - sec-greeting-prod.infy-gcp-external-demo.com
