@@ -6,8 +6,8 @@ on:
         description: 'Promote to production'
         required: true
         type: boolean
-      confirm_comment:
-        description: 'Test scenario tags'
+      approval_comment:
+        description: 'Approval comments'
         required: true
         type: string      
       environment_from:
