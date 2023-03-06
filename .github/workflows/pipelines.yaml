@@ -19,6 +19,7 @@ jobs:
     name: setup-build-publish
     runs-on: ubuntu-latest
     outputs:
+      output1: ${{ steps.step5.outputs.test }}
       TAG: ${{ steps.step6.outputs.TAG }}
     steps:
 
@@ -50,13 +51,16 @@ jobs:
       - name: Configure Docker
         id: step5
         run: |-
+          echo "test=hello" >> "$GITHUB_OUTPUT"
+          echo $GITHUB_OUTPUT
           gcloud --quiet auth configure-docker
 
       - name: Build Docker Image and push to GCR
         id: step6
         run: |-
           # Build a docker container and push it to ECR
-
+          env
+          echo "main env:" + $TAG1
           export TAG=$(git rev-parse --short "$GITHUB_SHA")
           echo "Pushing image to GCR..." + $TAG
           docker build --tag "gcr.io/$PROJECT_ID/$IMAGE:$TAG" .
@@ -65,6 +69,7 @@ jobs:
           GITHUB_OUTPUT=TAG
           echo "TAG=$TAG"
           echo "TAG=$TAG" >> "$GITHUB_OUTPUT"
+          echo $GITHUB_OUTPUT
           
   prepare-deploy-to-dev:
     name: prepare-deploy-to-dev
@@ -78,6 +83,7 @@ jobs:
       - name: Commit image tag for deployment
         env: 
           TAG: ${{needs.setup-build-publish.outputs.TAG}}
+          OUTPUT1: ${{needs.job1.outputs.output1}}
         run: |-       
           env
           cd deploy/dev  
