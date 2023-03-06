@@ -4,7 +4,9 @@ kind: Kustomization
 resources:
 - mms-greeting-deployment.yaml
 - mms-greeting-service.yaml
-    
+- mms-greeting-secret.yaml
+- mms-greeting-ingress.yaml
+
 images:
 - name: gcr.io/PROJECT_ID/IMAGE:TAG
   newName: gcr.io/poc-ciscld-mediamarkt-86910/mms-greetings-image

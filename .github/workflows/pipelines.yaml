@@ -49,13 +49,6 @@ jobs:
         run: |-
           gcloud --quiet auth configure-docker
 
-      - name: Get GKE Credentials
-        env:
-          USE_GKE_GCLOUD_AUTH_PLUGIN: True
-        run: |-
-          gcloud components install gke-gcloud-auth-plugin
-          gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
-
       - name: Build Docker Image and push to GCR
         run: |-
           # Build a docker container and push it to ECR
