@@ -63,6 +63,7 @@ jobs:
           echo "::set-output name=image::gcr.io/$PROJECT_ID/$IMAGE:$TAG"
           docker push "gcr.io/$PROJECT_ID/$IMAGE:$TAG"
           GITHUB_OUTPUT=TAG
+          echo "TAG=$TAG"
           echo "TAG=$TAG" >> "$GITHUB_OUTPUT"
           
   prepare-deploy-to-dev:
