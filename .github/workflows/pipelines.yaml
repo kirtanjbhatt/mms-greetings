@@ -76,6 +76,7 @@ jobs:
           git pull
           env
           export TAG=$(git rev-parse --short "$GITHUB_SHA")
+          echo "Is new tag right.." + $TAG          
 
 
 
