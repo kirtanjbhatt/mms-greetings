@@ -71,11 +71,13 @@ jobs:
     needs: setup-build-publish
     environment: dev
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2  
+
       - name: Commit image tag for deployment
         env: 
           TAG: ${{needs.prepare-deploy-to-dev.outputs.TAG}}
         run: |-       
-          ls 
           cd deploy/dev  
           curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
           chmod u+x ./kustomize                 
