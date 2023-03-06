@@ -22,7 +22,7 @@ env:
   IMAGE: mms-greetings-image
 
 jobs:
-  print-tag:
+  promote-build:
     runs-on: ubuntu-latest
     if:  ${{ inputs.Confirm_Promotion }} 
     steps:
