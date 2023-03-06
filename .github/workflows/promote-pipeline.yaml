@@ -1,5 +1,8 @@
 name: Promote to higher environment
 on:
+  workflow_run:
+    workflows: ["Build and publish"]
+    types: [completed]
   workflow_dispatch:
     branches:
       - main

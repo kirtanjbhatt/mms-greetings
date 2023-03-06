@@ -1,4 +1,4 @@
-name: Build and Deploy to GKE
+name: Build and publish
 
 on:
   push:
@@ -18,8 +18,8 @@ env:
   IMAGE: mms-greetings-image
 
 jobs:
-  setup-build-publish-deploy:
-    name: Setup Build Publish Deploy
+  setup-build-publish:
+    name: Setup Build Publish
     runs-on: ubuntu-latest
 
     steps:
