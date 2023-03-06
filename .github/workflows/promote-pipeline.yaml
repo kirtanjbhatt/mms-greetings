@@ -1,6 +1,5 @@
 name: Promote to higher environment
 on:
-  on:
   push:
     branches:
       - main
