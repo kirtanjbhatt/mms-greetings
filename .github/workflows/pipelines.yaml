@@ -54,8 +54,7 @@ jobs:
       - name: Build Docker Image and push to GCR
         id: step6
         run: |-
-          # Build a docker container and push it to ECR
-          env
+          # Build a docker container and push it to ECR          
           echo "main env:" + $TAG1
           export TAG=$(git rev-parse --short "$GITHUB_SHA")
           echo "Pushing image to GCR..." + $TAG
@@ -109,8 +108,7 @@ jobs:
           chmod u+x ./kustomize                
           echo "Do I know correct tag..." + $TAG
           git pull
-          ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$TAG
-          cat kustomization.yaml
+          ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$TAG          
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
           git add kustomization.yaml
