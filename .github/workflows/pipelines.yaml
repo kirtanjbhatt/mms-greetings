@@ -75,8 +75,10 @@ jobs:
           git push
           git pull
           echo "Old tag.." + $TAG      
-          export newTAG=$(git rev-parse HEAD)          
+          export NEW_TAG=$(git rev-parse HEAD --short)
           echo "Is new tag right.." + $newTAG          
+          gcloud container images add-tag gcr.io/$PROJECT_ID/$IMAGE:$TAG gcr.io/$PROJECT_ID/$IMAGE:$NEW_TAG       
+          
 
 
 
