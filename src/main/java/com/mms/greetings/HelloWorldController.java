@@ -17,6 +17,6 @@ public class HelloWorldController {
     public String HelloWorld(){
         byte[] decodedBytes = Base64.getDecoder().decode(greetingMessage);
         String decodedGreeetingsMessage = new String(decodedBytes);
-        return decodedGreeetingsMessage;
+        return "Hello!!" + decodedGreeetingsMessage;
     }
 }
