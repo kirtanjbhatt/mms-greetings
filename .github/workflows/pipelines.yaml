@@ -69,7 +69,7 @@ jobs:
           git commit -m "image tag updated: $TAG"
           git push
           export NEW_TAG=$(git rev-parse --short HEAD)
-          echo "Is new tag right.." + $newTAG          
+          echo "Is new tag right.." + $NEW_TAG          
           gcloud container images add-tag gcr.io/$PROJECT_ID/$IMAGE:$TAG gcr.io/$PROJECT_ID/$IMAGE:$NEW_TAG       
           
 
