@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - deploy/dev/kustomization.yaml  
+      - 'deploy/dev/kustomization.yaml'
 
 env:
   PROJECT_ID: ${{secrets.MMS_GKE_PROJECT}}
