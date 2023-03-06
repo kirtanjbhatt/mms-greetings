@@ -73,7 +73,6 @@ jobs:
           git add kustomization.yaml
           git commit -m "image tag updated: $TAG"
           git push
-          git pull
           export NEW_TAG=$(git rev-parse --short HEAD)
           echo "Is new tag right.." + $newTAG          
           gcloud container images add-tag gcr.io/$PROJECT_ID/$IMAGE:$TAG gcr.io/$PROJECT_ID/$IMAGE:$NEW_TAG       
