@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: mms-greetings
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 80
       targetPort: 8089
