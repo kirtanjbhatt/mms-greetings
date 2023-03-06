@@ -4,18 +4,7 @@ on:
     branches:
       - main
     paths:
-      - deploy/dev/kustomization.yaml
-  workflow_dispatch:
-    inputs:      
-      Confirm_Promotion:
-        description: 'Promote the release?'
-        required: true
-        type: boolean
-      approval_comment:
-        description: 'Approval comments'
-        required: true
-        type: string      
-
+      - deploy/dev/kustomization.yaml  
 
 env:
   PROJECT_ID: ${{secrets.MMS_GKE_PROJECT}}
