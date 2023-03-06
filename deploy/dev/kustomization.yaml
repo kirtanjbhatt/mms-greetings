@@ -10,8 +10,9 @@ secretGenerator:
   - greetings-message=R3V0ZW4gVGFnLiBXaWxrb21tZW4gYmVpIEluZm9zeXMhIQ==
   name: mms-apps-secrets
   namespace: mms-apps
-  disableNameSuffixHash: true
-  
+  options:
+    disableNameSuffixHash: true
+    
 images:
 - name: gcr.io/PROJECT_ID/IMAGE:TAG
   newName: gcr.io/poc-ciscld-mediamarkt-86910/mms-greetings-image
