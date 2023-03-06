@@ -2,20 +2,12 @@ name: Promote to higher environment
 on:
   workflow_run:
     workflows: ["Build and publish"]
-    types: [completed]   
-
-env:
-  PROJECT_ID: ${{secrets.MMS_GKE_PROJECT}}
-  GKE_CLUSTER: mms-gke-cluster-01
-  GKE_ZONE: us-west1-a
-  DEPLOYMENT_NAME: mms-greetings
-  IMAGE: mms-greetings-image
+    types: [completed]
 
 jobs:
   promote-build:
     runs-on: ubuntu-latest
     environment: prod
-    if:  ${{ inputs.Confirm_Promotion }} 
     steps:
       - name: Print the input tag to STDOUT
         run: 
