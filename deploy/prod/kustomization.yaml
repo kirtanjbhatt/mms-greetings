@@ -8,5 +8,5 @@ resources:
 - mms-greeting-ingress.yaml
 images:
 - name: gcr.io/PROJECT_ID/IMAGE:TAG
-  newName: gcr.io//
-  newTag: ee432af
+  newName: gcr.io/poc-ciscld-mediamarkt-86910/mms-greetings-image
+  newTag: afd270c
