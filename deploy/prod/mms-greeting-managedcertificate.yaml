@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:  
+  name: mms-sec-greeting-prod
+  namespace: mms-apps-prod
+spec:
+  domains:
+  - sec-greeting.inf-gcp-external-demo-prod.com

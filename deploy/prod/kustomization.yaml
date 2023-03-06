@@ -6,6 +6,8 @@ resources:
 - mms-greeting-service.yaml
 - mms-greeting-secret.yaml
 - mms-greeting-ingress.yaml
+- mms-greeting-managedcertificate.yaml
+
 images:
 - name: gcr.io/PROJECT_ID/IMAGE:TAG
   newName: gcr.io//
