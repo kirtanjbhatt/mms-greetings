@@ -1,9 +1,16 @@
 name: Promote to higher environment
 on:
+  on:
+  push:
+    branches:
+      - main
+    paths:
+      - deploy/dev/kustomization.yaml
+
   workflow_dispatch:
     inputs:      
       Confirm_Promotion:
-        description: 'Promote to production'
+        description: 'Promote the release?'
         required: true
         type: boolean
       approval_comment:
@@ -14,10 +21,12 @@ on:
         description: 'Environment to run tests against'
         type: environment
         required: true
+        exclude: prod
       environment_to:
         description: 'Environment to run tests against'
         type: environment
         required: true
+        exclude: dev
       image_tag:
         description: 'Image tags'
         required: true
