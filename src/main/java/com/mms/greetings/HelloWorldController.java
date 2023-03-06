@@ -1,5 +1,7 @@
 package com.mms.greetings;
 
+import java.util.Base64;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,8 @@ public class HelloWorldController {
     @RequestMapping("/")
     @ResponseBody
     public String HelloWorld(){
-        return greetingMessage;
+        byte[] decodedBytes = Base64.getDecoder().decode(greetingMessage);
+        String decodedGreeetingsMessage = new String(decodedBytes);
+        return decodedGreeetingsMessage;
     }
 }
