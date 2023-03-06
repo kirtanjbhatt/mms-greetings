@@ -12,7 +12,7 @@ on:
 env:
   PROJECT_ID: ${{secrets.MMS_GKE_PROJECT}}    
   IMAGE: mms-greetings-image
-  TAG1: ${(git rev-parse --short "$GITHUB_SHA")}
+  TAG1: ${git rev-parse --short "$GITHUB_SHA")
 
 jobs:
   setup-build-publish:
@@ -83,7 +83,7 @@ jobs:
       - name: Commit image tag for deployment
         env: 
           TAG: ${{needs.setup-build-publish.outputs.TAG}}
-          OUTPUT1: ${{needs.job1.outputs.output1}}
+          OUTPUT1: ${{needs.setup-build-publish.outputs.output1}}
         run: |-       
           env
           cd deploy/dev  
