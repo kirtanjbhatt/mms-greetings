@@ -9,7 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     environment: prod
     steps:
-      - name: Print the input tag to STDOUT
-        run: 
-          env
-          echo  The image is published
+      - name: Checkout Repository
+        uses: actions/checkout@v2  
+
+      - name: Commit image tag for deployment
+        run: |-        
+
+          cd deploy/prod  
+          curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
+          chmod u+x ./kustomize        
+          ##export TAG=$(git rev-parse --short "$GITHUB_SHA")
+          ##./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$TAG
+          ##cat kustomization.yaml
+          ##git config user.name github-actions[bot]
+          ##git config user.email github-actions[bot]@users.noreply.github.com
+          ##git add kustomization.yaml
+          ##git commit -m "image tag updated: $TAG"
+          ##git push
