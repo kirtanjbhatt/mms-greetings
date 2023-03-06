@@ -15,6 +15,7 @@ public class HelloWorldController {
     @RequestMapping("/")
     @ResponseBody
     public String HelloWorld(){
+        // return the message
         //byte[] decodedBytes = Base64.getDecoder().decode(greetingMessage);
         //String decodedGreeetingsMessage = new String(decodedBytes);
         return greetingMessage;
