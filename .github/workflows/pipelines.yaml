@@ -52,7 +52,7 @@ jobs:
 
       - name: Build Docker Image and push to GCR
         run: |-
-          # Build a docker container and push it to ECR
+          # Build a docker container and push it to ECR.
 
           export TAG=$(git rev-parse --short "$GITHUB_SHA")
           echo "Pushing image to GCR..." + $TAG
