@@ -74,9 +74,9 @@ jobs:
           git commit -m "image tag updated: $TAG"
           git push
           git pull
-          env
-          export TAG=$(git rev-parse --short "$GITHUB_SHA")
-          echo "Is new tag right.." + $TAG          
+          echo "Old tag.." + $TAG      
+          export newTAG=$(git rev-parse HEAD)          
+          echo "Is new tag right.." + $newTAG          
 
 
 
