@@ -4,6 +4,10 @@ on:
     workflows: ["Build and publish"]
     types: [completed]
 
+env:
+  PROJECT_ID: ${{secrets.MMS_GKE_PROJECT}}    
+  IMAGE: mms-greetings-image
+
 jobs:
   promote-build:
     runs-on: ubuntu-latest
