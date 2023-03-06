@@ -11,4 +11,4 @@ resources:
 images:
 - name: gcr.io/PROJECT_ID/IMAGE:TAG
   newName: gcr.io/poc-ciscld-mediamarkt-86910/mms-greetings-image
-  newTag: afd270c
+  newTag: ece7f0a
