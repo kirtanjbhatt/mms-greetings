@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
 - mms-greeting-deployment.yaml
 - mms-greeting-service.yaml
-- mms-greetings-sealed-secret.yaml
+- mms-secret.yaml
 - mms-greetings-ingress.yaml
     
 images:
