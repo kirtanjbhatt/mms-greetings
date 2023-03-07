@@ -9,7 +9,7 @@ metadata:
     kubernetes.io/ingress.class: "gce"
 spec:
   rules:
-  - host: "sec-greeting.inf-gcp-external-demo.com"
+  - host: "sec-greeting-prod.inf-gcp-external-demo.com"
     http:
       paths:
       - backend:
