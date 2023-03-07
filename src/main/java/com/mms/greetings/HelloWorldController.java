@@ -16,6 +16,12 @@ public class HelloWorldController {
     @RequestMapping("/")
     @ResponseBody
     public String HelloWorld(){        
-        return greetingMessage + " -- " + greetingMessageFromVolume;
+        return greetingMessage;
+    }
+
+    @RequestMapping("/greet")
+    @ResponseBody
+    public String greet(){        
+        return greetingMessageFromVolume;
     }
 }
