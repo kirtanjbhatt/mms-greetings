@@ -13,9 +13,17 @@ spec:
       labels:
         app: mms-greetings
     spec:
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: mms-greetings      
       containers:
         - name: app
           image: gcr.io/PROJECT_ID/IMAGE:TAG
+          volumeMounts:
+          - name: secret-volume
+            readOnly: true
+            mountPath: "/etc/secret-volume"          
           imagePullPolicy: Always
           env:
           - name: MMS_GREETING_MSG
