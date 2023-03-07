@@ -65,8 +65,8 @@ jobs:
           echo "TAG=$TAG" >> "$GITHUB_OUTPUT"
           echo $GITHUB_OUTPUT
           
-  prepare-deploy-to-dev:
-    name: prepare-deploy-to-dev
+  promote-to-dev:
+    name: promote-to-dev
     runs-on: ubuntu-latest
     needs: setup-build-publish
     environment: dev
@@ -93,7 +93,7 @@ jobs:
   promote-to-prod:
     name: promote-to-prod
     runs-on: ubuntu-latest
-    needs: [setup-build-publish, prepare-deploy-to-dev]
+    needs: [setup-build-publish, promote-to-dev]
     environment: prod
     steps:
       - name: Checkout Repository
