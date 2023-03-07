@@ -4,7 +4,7 @@ metadata:
   name: mms-ingress
   namespace: mms-apps-prod
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: ip-mms-global-01
+    kubernetes.io/ingress.global-static-ip-name: ip-mms-p-gl-01
     networking.gke.io/managed-certificates: mms-sec-greeting-prod
     kubernetes.io/ingress.class: "gce"
 spec:
