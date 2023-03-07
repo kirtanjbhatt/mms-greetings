@@ -10,9 +10,12 @@ public class HelloWorldController {
     @Value("${mms.greeting.message}")
     private String greetingMessage;
 
+    @Value("${mms.greetings-message}")
+    private String greetingMessageFromVolume;
+
     @RequestMapping("/")
     @ResponseBody
     public String HelloWorld(){        
-        return greetingMessage;
+        return greetingMessage + " -- " + greetingMessageFromVolume;
     }
 }

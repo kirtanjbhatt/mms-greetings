@@ -23,7 +23,7 @@ spec:
           volumeMounts:
           - name: secret-volume
             readOnly: true
-            mountPath: "/etc/secret-volume"          
+            mountPath: "/etc/secret-volume/mms"          
           imagePullPolicy: Always
           env:
           - name: MMS_GREETING_MSG
