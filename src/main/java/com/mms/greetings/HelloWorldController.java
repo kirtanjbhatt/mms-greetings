@@ -13,7 +13,7 @@ public class HelloWorldController {
     @Value("${mms.greetings-message}")
     private String greetingMessageFromVolume;
 
-    @RequestMapping("/greet")
+    @RequestMapping("/")
     @ResponseBody
     public String HelloWorld(){        
         return greetingMessage + " -- " + greetingMessageFromVolume;
