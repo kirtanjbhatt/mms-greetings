@@ -8,8 +8,13 @@ metadata:
     networking.gke.io/managed-certificates: mms-sec-greeting-prod
     kubernetes.io/ingress.class: "gce"
 spec:
-  defaultBackend:
-    service:
-      name: mms-greetings
-      port:
-        number: 80
+  rules:
+  - host: "sec-greeting.inf-gcp-external-demo.com"
+    http:
+      paths:
+      - backend:
+          service:
+            name: mms-greetings
+            port:
+              number: 80
+        pathType: ImplementationSpecific
