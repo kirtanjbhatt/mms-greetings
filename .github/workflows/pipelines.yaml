@@ -6,6 +6,7 @@ on:
       - main
     paths-ignore:
       - 'README.md'
+      - 'sample.md'
       - 'deploy/**'
       - '.github/workflows/promote-pipeline.yaml'
 
