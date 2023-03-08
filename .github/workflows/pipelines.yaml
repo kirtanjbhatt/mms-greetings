@@ -81,7 +81,7 @@ jobs:
           cd deploy/dev  
           curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
           chmod u+x ./kustomize   
-          echo "Image tag: " + $TAG            
+          echo "Image tag...." + $TAG            
           git pull
           ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$TAG
           git config user.name github-actions[bot]
@@ -106,7 +106,7 @@ jobs:
           cd deploy/prod  
           curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
           chmod u+x ./kustomize                
-          echo "Image tag: " + $TAG
+          echo "Image tag..." + $TAG
           git pull
           ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$TAG          
           git config user.name github-actions[bot]
