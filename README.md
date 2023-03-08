@@ -5,19 +5,29 @@ Demo springboot app to get the greetings message from encrypted secrets.
 Github workflow - /.github/workflows/pipelines.yaml
 
 Github secrets and environments 
+
 Build code using maven
+
 Build docker image
+
 Push image to GCR
+
 Promote to dev - Update the image tag in kustomize file under /deploy/dev location. Argocd will identify the change and deploy the yaml files to dev env
+
 Promote to prod - Update the image tag in kustomize file under /deploy/prod location. Argocd will identify the change and deploy the yaml files to prod env. Additional approval is needed to deploy the image to productions
 
 
 # Additional features that can be added:
 Argocd installation worlflow
+
 Google cloud resource workflow
+
 Test coverage
+
 Sonar check
+
 Automation test
+
 
 
 ## How to run app
