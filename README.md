@@ -30,21 +30,21 @@ Automation test
 
 
 
-## How to run app
+# How to run app
 
-# Set greeting message as env 
+## Set greeting message as env 
 export MMS_GREETING_MSG=hello world
 
-# Clean and compile
+## Clean and compile
 mvn clean & compile
 
-# Create jar file
+## Create jar file
 mvn clean package spring-boot:repackage
 
-# Run
+## Run
 mvn spring-boot:run
 
-# Test
+## Test
 
 Read message from env variable
 http://localhost:8089/
